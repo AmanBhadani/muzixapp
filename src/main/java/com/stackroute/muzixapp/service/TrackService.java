@@ -15,4 +15,6 @@ public interface TrackService {
     public List<Track> getAllTracks();
 
     public Track updateTrack(int id,String comment);
+
+    public void deleteall();
 }

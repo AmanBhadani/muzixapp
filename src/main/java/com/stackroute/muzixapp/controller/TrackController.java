@@ -47,6 +47,22 @@ public class TrackController {
 
         return responseEntity;
     }
+    @DeleteMapping(value = "delete")
+    public ResponseEntity<?> delete() {
+
+        ResponseEntity responseEntity;
+
+        try{
+            trackService.deleteall();
+            responseEntity = new ResponseEntity("Deleted Successfully", HttpStatus.OK);
+
+        } catch (Exception ex)
+        {
+            responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+        }
+
+        return responseEntity;
+    }
 
     @PutMapping(value = "/update/{id}/{comment}")
     public ResponseEntity<?> updateTrack(@PathVariable int id, @PathVariable String comment) {
@@ -85,4 +101,5 @@ public class TrackController {
 
         return responseEntity;
     }
+
 }

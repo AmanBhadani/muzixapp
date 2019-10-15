@@ -15,6 +15,7 @@ public class TrackServiceImpl implements TrackService{
 
     @Autowired
     public TrackServiceImpl(TrackRepository trackRepository){
+
         this.trackRepository = trackRepository;
     }
 
@@ -40,6 +41,9 @@ public class TrackServiceImpl implements TrackService{
     public List<Track> getAllTracks()
     {
         return trackRepository.findAll();
+    }
+    public void deleteall(){
+        trackRepository.deleteAll();
     }
 
     @Override
